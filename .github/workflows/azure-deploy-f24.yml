@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - nodebb-f24
+name: nodebb-usb-24-geektech
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
 
       - name: Set up NodeBB
         run: |
-          ./nodebb setup '{"url":"https://nodebb-f24.azurewebsites.net:443",
+          ./nodebb setup '{"url":"https://geektech-nodebb.azurewebsites.net:443",
             "admin:username": "admin",
             "admin:password": "${{ secrets.ADMIN_PASSWORD }}",
             "admin:password:confirm": "${{ secrets.ADMIN_PASSWORD }}",
@@ -44,11 +44,11 @@ jobs:
             "redis:port": "6379",
             "redis:password": "${{ secrets.REDIS_PASSWORD }}" }'
           
-      - name: 'Deploy to Azure Web App'
+      - name: 'geektech-nodebb'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'nodebb-f24'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BFAB97B1AB1441ACA7C63280F91AD3F3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E955144D471B4677AAEF52EC85450B3A }}
           package: .
